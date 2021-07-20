@@ -1,6 +1,6 @@
 # Blackjack
 
-In progress
+Tkinter implementation of Black Jack casino game
 
 ## Summary
 
