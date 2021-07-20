@@ -1,5 +1,4 @@
 # Blackjack
-Tkinter GUI of Blackjack
 
 In progress
 
