@@ -50,7 +50,7 @@ def blackjack_hand_greater_than(hand_1, hand_2):
     """
     Function description from
     
-    Kaggle Python course Lesson 7 Working with External Libraries (exercice 3)
+    Kaggle Python course Lesson 7 Working with External Libraries (exercise 3)
     
     Return True if hand_1 beats hand_2, and False otherwise.
     
