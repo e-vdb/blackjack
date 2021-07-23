@@ -8,7 +8,7 @@ Created on Sun Jul 18 12:20:28 2021
 
 import tkinter as tk
 import random
-
+from time import sleep
 
 colors=['coeur','carreau','trefle','pique']
 values=['as','2','3','4','5','6','7','8','9','10','valet','dame','roi']
@@ -208,7 +208,20 @@ def hit():
         can.update()
         if player.total_hand()>21:
             can.create_text(200,550,text="Dealer wins",fill='red',font='Arial 22')
-    
+
+def printRules():
+    global ruleWindow
+    ruleWindow=tk.Tk()
+    ruleWindow.title("Blackjack rules")
+    frameRule=tk.Canvas(ruleWindow,bg='white',height=500,width=500)
+    frameRule.pack()  
+    with open('rules_eng.txt') as f:
+        gameRules=f.read()
+    lab_Rule=tk.Label(frameRule,text=gameRules,fg="black", anchor="e", justify=tk.LEFT)
+    lab_Rule.pack(side=tk.TOP)
+    ruleWindow.mainloop()            
+            
+            
 player=Player()
 player_cards=[]
 dealer=Player()
@@ -223,6 +236,8 @@ game = tk.Menu(top, tearoff=False)
 top.add_cascade(label='Game', menu=game)
 game.add_command(label='New game', command=reinit)
 game.add_command(label='Exit', command=window.destroy)
+top.add_command(label='Rules',command=printRules)
+
 
 can = tk.Canvas(window,bg='black',height=600,width=500)
 can.pack(side=tk.TOP,padx=5,pady=5)
