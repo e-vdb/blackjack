@@ -1,0 +1,30 @@
+Blackjack is a casion-banking game
+
+GAME GOAL
+
+You play against the dealer. Your goal is to get a better hand than the dealer without exceeding 21.
+
+CARD VALUES
+
+- From 2 to 10 : nominal value
+
+- Jack, Queen or King : 10
+
+- Ace : 1 or 11
+
+GAMEPLAY
+
+- At first you have two cards whereas the dealer has one card.
+
+- You have two options :
+	* Hit : pick up a card. If your hand is lower than 21 you can choose to hit again or to Stand.
+	* Stand 
+
+- Once you decide to stand, the dealer picks card till his hand is lower than 16.
+
+- If your hand exceeds 21 : you loose your bet. 
+
+- You win your bet if you get a better hand than the dealer.
+
+
+
