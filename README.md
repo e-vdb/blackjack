@@ -24,6 +24,10 @@ To play the game, save the following files in the same directory.
 
 ### Interface
 
+![game](https://user-images.githubusercontent.com/82372483/126448729-2d385d92-a865-4fac-8f51-8b337baeefb4.png)
+
+### Gameplay
+
 Two buttons : hit and stand
 
 ### Rules
