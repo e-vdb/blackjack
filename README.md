@@ -19,7 +19,7 @@ To play the game, save the following files in the same directory.
 * blackjack.py : Python script
 * Images folder : 
     * playing cards pictures (in .gif) for GUI from https://www.apprendre-en-ligne.net/pj/blackjack/index.html
-    * bankruptcy.gif
+    * bankruptcy.gif from https://pixabay.com/illustrations/bankrupt-broke-failure-bankruptcy-2340287/
 * rules_eng.txt : plain text document that contains the rules and explains how to play the game
 
 ## Tkinter interface
