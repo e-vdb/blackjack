@@ -1,4 +1,7 @@
-Blackjack is a casion-banking game
+Blackjack is a casino-banking game
+
+IMPLEMENTED RULE
+- Dealer must draw on 16 and stand on 17.
 
 GAME GOAL
 
@@ -21,6 +24,8 @@ GAMEPLAY
 	* Stand 
 
 - Once you decide to stand, the dealer picks card till his hand is lower than 16.
+
+BETS PAYMENT
 
 - If your hand exceeds 21 : you loose your bet. 
 
