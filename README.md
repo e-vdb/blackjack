@@ -39,8 +39,15 @@ The rules of Blackjack can be displayed thanks to the menu Rules from the GUI.
 
 ### Example of game
 
-![game](https://user-images.githubusercontent.com/82372483/126448729-2d385d92-a865-4fac-8f51-8b337baeefb4.png)
+There are four steps :
+* Initial deal
+* Player action
+* Dealer's hand revealed
+* Bets settled
 
-![game2](https://user-images.githubusercontent.com/82372483/126449000-6309d287-1244-4c70-9f4a-24a2ba9fdbec.png)
+![player_action](https://user-images.githubusercontent.com/82372483/130355010-d684a41f-bac6-4867-a9d4-38e573397e45.png)
+![bets_settled](https://user-images.githubusercontent.com/82372483/130355013-f4ddb7ed-251a-40c8-aa5f-365a2312f156.png)
+
+
 
 
