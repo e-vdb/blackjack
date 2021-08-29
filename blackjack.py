@@ -101,7 +101,10 @@ class Player(object):
     def add_card(self,card):
         card_id = values.index(card.getValue())
         self.hand.append(repCards[card_id])
-        
+    
+    def cards_number(self):
+        return len(self.hand)
+    
     def total_hand(self):
         return calculate_hand(self.hand)
     
@@ -129,7 +132,8 @@ class Pack52cards(object):
         for value in values:
             for color in colors:
                 card=Card(value,color)
-                self.cards.append(card) 
+                self.cards.append(card)
+        
         
     def shuffle_pack(self):
         #random.seed(0)
@@ -150,10 +154,10 @@ def winner():
     global player_total,lab_Message2,lab_Message
     lab_Message.configure(text=action[4])
     if blackjack_hand_greater_than(player.getHand(),dealer.getHand()):
-        player_total+=2*player_mise
+        player_total+=2*player_bet
         can.create_text(200,550,text="Player wins",fill='red',font='Arial 22')
     else:
-        player_total-=player_mise
+        player_total-=player_bet
         can.create_text(200,550,text="Dealer wins",fill='red',font='Arial 22')
     lab_Message2.configure(text="Player total money : "+str(player_total))
     if player_total>=10:
@@ -165,12 +169,11 @@ def reinit():
     global player,dealer,player_cards,dealer_cards,dealer_score,player_score,p_x
     global can_play
     global pack,can,window,continueWindow
-    global player_total,player_mise,lab_Message
+    global player_total,player_bet,lab_Message
     lab_Message.configure(text=action[1])
     can.delete(tk.ALL)
     can.create_text(60,30,text="Dealer",fill='white',font='Arial 18')
     can.create_text(60, 470,text='Player',fill='white',font='Arial 18')
-    
     pack=Pack52cards()
     pack.shuffle_pack()
     dealer.reinit()
@@ -200,7 +203,11 @@ def reinit():
     player.add_card(card3)
     player_score=can.create_text(150,470,text=str(player.total_hand()),fill='white',font='Arial 18')
     can_play=True
-    lab_Message.configure(text=action[2])
+    if player.total_hand()==21:
+        can.create_text(250,470,text="Blackjack",fill='red',font='Arial 22')
+        window.after(100,stand)
+    else:
+        lab_Message.configure(text=action[2])
     
 def stand():
     global player_score,dealer_score,player,dealer,can_play,lab_Message
@@ -217,6 +224,8 @@ def stand():
             can.delete(dealer_score)
             dealer_score=can.create_text(150,30,text=str(dealer.total_hand()),fill='white',font='Arial 18')
             can.update()
+            if dealer.total_hand()==21 and dealer.cards_number()==2:
+                can.create_text(250,30,text="Blackjack",fill='red',font='Arial 22')
         window.after(100,winner)
         can_play=False
     
@@ -233,7 +242,7 @@ def hit():
         can.update()
         if player.total_hand()>21:
             lab_Message.configure(text=action[4])
-            player_total-=player_mise
+            player_total-=player_bet
             can.create_text(200,550,text="Dealer wins",fill='red',font='Arial 22')
             lab_Message2.configure(text="Player total money : "+str(player_total))
             can_play=False
@@ -244,13 +253,11 @@ def hit():
 
 def printRules():
     global ruleWindow
-    ruleWindow=tk.Tk()
-    ruleWindow.title("Blackjack rules")
-    frameRule=tk.Canvas(ruleWindow,bg='white',height=500,width=500)
-    frameRule.pack()  
+    ruleWindow=tk.Toplevel()
+    ruleWindow.title("Blackjack rules") 
     with open('rules_eng.txt') as f:
         gameRules=f.read()
-    lab_Rule=tk.Label(frameRule,text=gameRules,fg="black", anchor="e", justify=tk.LEFT)
+    lab_Rule=tk.Label(ruleWindow,text=gameRules,fg="black", anchor="e", justify=tk.LEFT)
     lab_Rule.pack(side=tk.TOP)
     ruleWindow.mainloop()
 
@@ -299,7 +306,7 @@ player_cards=[]
 dealer=Player()
 dealer_cards=[]
 player_total=50
-player_mise=10
+player_bet=10
 can_play=False
 action=["Click on Game to start a new game",
         "Initial deal","Player action","Dealer's hand revealed","Bets settled"]
@@ -337,3 +344,5 @@ lab_Message=tk.Label(frame,text=action[0],fg="black")
 lab_Message.pack(side=tk.TOP)
 
 window.mainloop()
+
+
