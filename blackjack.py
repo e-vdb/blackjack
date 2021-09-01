@@ -261,6 +261,15 @@ def printRules():
     lab_Rule.pack(side=tk.TOP)
     ruleWindow.mainloop()
 
+def about():
+    aboutWindow=tk.Toplevel()
+    aboutWindow.title("About") 
+    with open('about.txt') as f:
+        about=f.read()
+    lbl_about=tk.Label(aboutWindow,text=about,fg="black", anchor="e", justify=tk.LEFT)
+    lbl_about.pack(side=tk.TOP)
+    aboutWindow.mainloop()    
+    
 def endGame():
     global continueWindow
     continueWindow=tk.Tk()
@@ -325,6 +334,7 @@ top.add_cascade(label='Game', menu=game)
 game.add_command(label='New game', command=newGame)
 game.add_command(label='Exit', command=window.destroy)
 top.add_command(label='Rules',command=printRules)
+top.add_command(label='About',command=about)
 
 can = tk.Canvas(window,bg='black',height=600,width=500)
 can.pack(side=tk.TOP,padx=5,pady=5)
