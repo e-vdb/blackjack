@@ -49,6 +49,7 @@ There are four steps :
 ![player_action](https://user-images.githubusercontent.com/82372483/130355010-d684a41f-bac6-4867-a9d4-38e573397e45.png)
 ![bets_settled](https://user-images.githubusercontent.com/82372483/130355013-f4ddb7ed-251a-40c8-aa5f-365a2312f156.png)
 
-
+## Tasks list
+- [ ] Documenting code
 
 
