@@ -16,7 +16,6 @@ def printRules() -> None:
     -------
     None.
     """
-    global ruleWindow
     ruleWindow = tk.Toplevel()
     ruleWindow.title("Blackjack rules")
     with open('rules_eng.txt') as f:
