@@ -34,9 +34,9 @@ class Player(object):
 
 
 class Card(object):
-    def __init__(self,val='as',col='carreau'):
-        self.value=val
-        self.color=col
+    def __init__(self,val='as', col='carreau'):
+        self.value = val
+        self.color = col
     
     def getValue(self):
         return self.value
@@ -45,7 +45,7 @@ class Card(object):
         print("{} de {}".format(self.value,self.color))
 
     def picture(self):
-        name='pictures/'+self.value+'_'+self.color+'.gif'
+        name = 'pictures/' + self.value + '_' + self.color + '.gif'
         return tk.PhotoImage(file=name)
 
 
@@ -59,12 +59,11 @@ class Pack52cards(object):
         
         
     def shuffle_pack(self):
-        #random.seed(0)
         random.shuffle(self.cards)
         
     def pick_card(self):
         if len(self.cards)>0:
-            card=self.cards.pop(0)
+            card = self.cards.pop(0)
             return card
         else:
             return None
