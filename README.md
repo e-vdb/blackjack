@@ -14,9 +14,12 @@ To learn more about this game : see https://en.wikipedia.org/wiki/Blackjack
 
 ## Repository content
 
-To play the game, save the following files in the same directory.
+To play the game, save all files from blackjack folder in the same directory.
 
-* blackjack.py : Python script
+* main.py : main Python script
+* blackjack_functions.py: Python module
+* blackjack_classes.py: Python module
+* help_GUI.py: Python module
 * Images folder : 
     * playing cards pictures (in .gif) for GUI from https://www.apprendre-en-ligne.net/pj/blackjack/index.html
     * bankruptcy.gif from https://pixabay.com/illustrations/bankrupt-broke-failure-bankruptcy-2340287/
