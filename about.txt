@@ -1,5 +1,0 @@
-Blackjack
-
-MIT License
-
-Copyright (c) 2021 Emeline Van der Beken
