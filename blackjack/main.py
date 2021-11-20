@@ -13,12 +13,6 @@ from blackjack_classes import Player, Pack52cards
 from help_GUI import about, printRules
 
 
-colors=['coeur','carreau','trefle','pique']
-values=['as','2','3','4','5','6','7','8','9','10','valet','dame','roi']
-repCards=['A','2','3','4','5','6','7','8','9','10','J','Q','K']
-
-
-
 def put_card(idx,idy,im):
     global can
     can.create_image(idx,idy,image=im)
@@ -30,10 +24,10 @@ def winner():
         player_total+=2*player_bet
         can.create_text(200,550,text="Player wins",fill='red',font='Arial 22')
     else:
-        player_total-=player_bet
+        player_total -= player_bet
         can.create_text(200,550,text="Dealer wins",fill='red',font='Arial 22')
     lab_Message2.configure(text="Player total money : "+str(player_total))
-    if player_total>=10:
+    if player_total >= 10:
         window.after(2000,endGame)
     else:
         window.after(2000,bankruptcy)
@@ -166,13 +160,13 @@ def newGame():
     lab_Message2.configure(text="Player total money : "+str(player_total))
     reinit()
     
-player=Player()
-player_cards=[]
-dealer=Player()
-dealer_cards=[]
-player_total=50
-player_bet=10
-can_play=False
+player = Player()
+player_cards = []
+dealer = Player()
+dealer_cards = []
+player_total = 50
+player_bet = 10
+can_play = False
 action=["Click on Game to start a new game",
         "Initial deal","Player action","Dealer's hand revealed","Bets settled"]
 
@@ -181,7 +175,7 @@ GUI
 '''
 window = tk.Tk()
 window.title("Blackjack")
-frame=tk.Frame(window)
+frame = tk.Frame(window)
 frame.pack(side=tk.TOP)
 top = tk.Menu(window)
 window.config(menu=top)
@@ -202,13 +196,11 @@ but_stand = tk.Button(window,text='Stand',command=stand)
 but_stand.pack(side=tk.LEFT)
 
 
-lab_Message2=tk.Label(window,text="",fg="black")
+lab_Message2 = tk.Label(window,text="",fg="black")
 lab_Message2.pack(side=tk.BOTTOM)
-name='pictures/bankruptcy.gif'
-imageBankruptcy=tk.PhotoImage(file=name)
-lab_Message=tk.Label(frame,text=action[0],fg="black")
+name = 'pictures/bankruptcy.gif'
+imageBankruptcy = tk.PhotoImage(file=name)
+lab_Message = tk.Label(frame,text=action[0],fg="black")
 lab_Message.pack(side=tk.TOP)
 
 window.mainloop()
-
-
