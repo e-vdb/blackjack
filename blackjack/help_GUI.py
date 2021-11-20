@@ -7,6 +7,15 @@ Define help functions for GUI menu.
 import tkinter as tk
 
 def printRules():
+    """
+    Display rules and gameplay.
+    
+    Load a text files 'rules_eng.txt' saved inside the same directory.
+    Open a second window.
+    Returns
+    -------
+    None.
+    """
     global ruleWindow
     ruleWindow=tk.Toplevel()
     ruleWindow.title("Blackjack rules") 
@@ -17,6 +26,16 @@ def printRules():
     ruleWindow.mainloop()
 
 def about():
+    """
+    Display licence information.
+    
+    Load the text document 'about.txt'.
+    Open a secondary window.
+    Write the content of the text document.
+    Returns
+    -------
+    None.
+    """
     aboutWindow=tk.Toplevel()
     aboutWindow.title("About") 
     with open('about.txt') as f:
