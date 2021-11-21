@@ -13,6 +13,9 @@ values=['as','2','3','4','5','6','7','8','9','10','valet','dame','roi']
 repCards=['A','2','3','4','5','6','7','8','9','10','J','Q','K']
 
 class Player(object):
+    """
+    Define a class to represent player/dealer.
+    """
     def __init__(self):
         self.hand = []
     
@@ -34,6 +37,9 @@ class Player(object):
 
 
 class Card(object):
+    """
+    Define a class to represent a card.
+    """
     def __init__(self,val='as', col='carreau'):
         self.value = val
         self.color = col
