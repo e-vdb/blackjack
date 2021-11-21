@@ -19,6 +19,7 @@ To play the game, save all files from blackjack folder in the same directory.
 * main.py : main Python script
 * blackjack_functions.py: Python module
 * blackjack_classes.py: Python module
+* game.py: Python module
 * help_GUI.py: Python module
 * Images folder : 
     * playing cards pictures (in .gif) for GUI from https://www.apprendre-en-ligne.net/pj/blackjack/index.html
