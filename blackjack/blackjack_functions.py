@@ -4,8 +4,9 @@
 
 from typing import List
 
+
 def calculate_hand(hand: List[str]) -> int:
-    '''
+    """
     Return the value of the hand.
 
     Parameters
@@ -21,13 +22,13 @@ def calculate_hand(hand: List[str]) -> int:
     Examples:
     >>> calculate_hand(['3', '4'])
     7
-    >>> calculate_hand(['K','10'])
+    >>> calculate_hand(['K', '10'])
     20
-    >>> calculate_hand(['K','A'])
+    >>> calculate_hand(['K', 'A'])
     21
 
-    '''
-    listFig = ['J','Q','K']
+    """
+    listFig = ['J', 'Q', 'K']
     tot_hand = 0
     nbAces = 0
     for card in hand:
@@ -46,7 +47,7 @@ def calculate_hand(hand: List[str]) -> int:
     return tot_hand
 
 
-def blackjack_hand_greater_than(hand_1, hand_2) -> bool:
+def blackjack_hand_greater_than(hand_1: List[str], hand_2: List[str]) -> bool:
     """
     Return True if hand_1 beats hand_2, and False otherwise.
 
@@ -59,7 +60,7 @@ def blackjack_hand_greater_than(hand_1, hand_2) -> bool:
     When adding up a hand's total, cards with numbers count for that many points.
     Face cards ('J', 'Q', and 'K') are worth 10 points. 'A' can count for 1 or 11.
 
-    When determining a hand's total, you should try to count aces in the way that 
+    When determining a hand's total, you should try to count aces in the way that
     maximizes the hand's total without going over 21. e.g. the total of ['A', 'A', '9'] is 21,
     the total of ['A', 'A', '9', '3'] is 14.
 
