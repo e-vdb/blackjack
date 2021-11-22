@@ -52,6 +52,9 @@ class Player(object):
 class Card(object):
     """
     A class to represent a card.
+    
+    Methods
+    -----------
     """
     def __init__(self, val='as', col='carreau'):
         self.value = val
@@ -71,18 +74,49 @@ class Card(object):
 class Pack52cards(object):
     """
     A class to represent a pack of 52 cards.
+
+    Methods
+    -----------
+    shuffle_pack()
+        Shuffle the pack of cards.
+    pick_card()
+        Remove the first card of the remaining pack.
     """
-    def __init__(self):
+    def __init__(self) -> None:
+        """
+        Build the pack of 52 cards.
+
+        Returns
+        -------
+        None.
+
+        """
         self.cards = []
         for value in values:
             for color in colors:
                 card = Card(value, color)
                 self.cards.append(card)
 
-    def shuffle_pack(self):
+    def shuffle_pack(self) -> None:
+        """
+        Shuffle the pack of cards.
+
+        Returns
+        -------
+        None.
+
+        """
         random.shuffle(self.cards)
 
-    def pick_card(self):
+    def pick_card(self) -> Card():
+        """
+        Remove the first card of the remaining pack.
+
+        Returns
+        -------
+        card : Card
+            First card of the remaining pack.
+        """
         if len(self.cards) > 0:
             card = self.cards.pop(0)
             return card
