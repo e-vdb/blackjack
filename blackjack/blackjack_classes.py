@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Define classes.
-"""
+"""Define classes."""
 from blackjack_functions import calculate_hand
 import tkinter as tk
 import random
@@ -14,64 +12,50 @@ values = ['as', '2', '3', '4', '5', '6', '7',
 repCards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
 
-class Player(object):
-    """
-    A class to represent player/dealer.
-
-    Methods
-    -----------
-    add_card(card)
-
-    cards_number()
-
-    total_hand()
-
-    reinit()
-
-    """
-    def __init__(self):
-        self.hand = []
-
-    def getHand(self):
-        return self.hand
-
-    def add_card(self, card):
-        card_id = values.index(card.getValue())
-        self.hand.append(repCards[card_id])
-
-    def cards_number(self):
-        return len(self.hand)
-
-    def total_hand(self):
-        return calculate_hand(self.hand)
-
-    def reinit(self):
-        self.hand = []
-
-
-class Card(object):
+class Card():
     """
     A class to represent a card.
-    
+
     Methods
     -----------
+    picture
+        Return the Image of the card.
     """
     def __init__(self, val='as', col='carreau'):
+        """
+        Constructor.
+
+        Parameters
+        ----------
+        val : str, optional
+            Card value. The default is 'as'.
+        col : str, optional
+            Card color. The default is 'carreau'.
+
+        Returns
+        -------
+        None.
+
+        """
         self.value = val
         self.color = col
 
-    def getValue(self):
-        return self.value
-
-    def display(self):
-        print("{} de {}".format(self.value, self.color))
-
     def picture(self):
+        """
+        Return the Image of the card.
+
+        Load the gif picture of the card and return the PhotoImage.
+
+        Returns
+        -------
+        PhotoImage
+            Picture for the GUI.fk
+        """
         name = 'pictures/' + self.value + '_' + self.color + '.gif'
         return tk.PhotoImage(file=name)
 
 
-class Pack52cards(object):
+class Pack52cards():
     """
     A class to represent a pack of 52 cards.
 
@@ -122,3 +106,81 @@ class Pack52cards(object):
             return card
         else:
             return None
+
+
+class Player():
+    """
+    A class to represent player/dealer.
+
+    Methods
+    -----------
+    add_card(card)
+        Add a card to player hand.
+    cards_number()
+        Return the number of cards in player hand.
+    total_hand()
+        Return the value of the player hand.
+    reinit()
+        Reset the player hand (empty list).
+    """
+    def __init__(self):
+        """
+        Constructor.
+
+        Returns
+        -------
+        None.
+
+        """
+        self.hand = []
+
+    def add_card(self, card: Card) -> None:
+        """
+        Add a card to player hand.
+
+        Parameters
+        ----------
+        card : Card
+            Card.
+
+        Returns
+        -------
+        None.
+
+        """
+        card_id = values.index(card.value)
+        self.hand.append(repCards[card_id])
+
+    def cards_number(self) -> int:
+        """
+        Return the number of cards in player hand.
+
+        Returns
+        -------
+        int
+            DESCRIPTION.
+
+        """
+        return len(self.hand)
+
+    def total_hand(self) -> int:
+        """
+        Return the value of the player hand.
+
+        Returns
+        -------
+        int
+            Value of the player hand.
+
+        """
+        return calculate_hand(self.hand)
+
+    def reinit(self):
+        """
+        Reset the player hand (empty list).
+
+        Returns
+        -------
+        None.
+        """
+        self.hand = []
