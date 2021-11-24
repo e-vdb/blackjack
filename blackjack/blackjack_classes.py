@@ -23,7 +23,7 @@ class Card():
     """
     def __init__(self, val='as', col='carreau'):
         """
-        Constructor.
+        Assign the value and color of the card.
 
         Parameters
         ----------
