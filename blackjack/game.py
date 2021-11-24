@@ -148,7 +148,7 @@ class Game:
 
     def winner(self):
         self.lab_Message.configure(text=action[4])
-        if blackjack_hand_greater_than(self.player.getHand(),self.dealer.getHand()):
+        if blackjack_hand_greater_than(self.player.hand,self.dealer.hand):
             self.player_total += 2*self.player_bet
             self.can.create_text(200,550,text="Player wins",fill='red',font='Arial 22')
         else:
